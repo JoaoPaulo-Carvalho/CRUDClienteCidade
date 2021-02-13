@@ -6,8 +6,6 @@ describe('Testar a raiz do router', () => {
     'Deve responder à requisição GET com status 200',
     () => request(app)
       .get('/api/')
-      .then((response) => {
-        expect(response.statusCode).toBe(200);
-      }),
+      .expect(200),
   );
 });
