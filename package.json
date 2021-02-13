@@ -2,7 +2,7 @@
   "name": "CRUDClienteCidade",
   "version": "1.0.0",
   "description": "CRUD de Clientes e Cidades em Node.JS",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "nodemon ."
   },
