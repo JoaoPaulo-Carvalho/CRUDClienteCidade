@@ -60,4 +60,20 @@ router.post('/cidades', (req, res) => {
   });
 });
 
+router.post('/clientes', (req, res) => {
+  const {
+    nome, sexo, dataNasc, idade, cidadeID,
+  } = req.body;
+
+  const values = [nome, sexo, dataNasc, idade, cidadeID];
+
+  pool.query('INSERT INTO public.cliente(nome, sexo, data_nasc, idade, cidade_id) VALUES($1, $2, $3, $4, $5) RETURNING *', values, (err, result) => {
+    if (err) {
+      res.status(409).send({ error: err.message });
+    } else {
+      res.status(201).json(result.rows[0]);
+    }
+  });
+});
+
 app.listen(port);
