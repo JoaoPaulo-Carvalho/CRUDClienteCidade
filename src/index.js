@@ -15,14 +15,17 @@ const pool = new Pool({
 });
 
 pool.query(
-  `CREATE TABLE IF NOT EXISTS public.cidade (
-    id uuid NOT NULL PRIMARY KEY UNIQUE,
+  `
+  CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+  
+  CREATE TABLE IF NOT EXISTS public.cidade (
+    id uuid NOT NULL PRIMARY KEY UNIQUE DEFAULT uuid_generate_v4(),
     nome character varying NOT NULL,
     uf character varying NOT NULL
   );
   
   CREATE TABLE IF NOT EXISTS public.cliente (
-    id uuid NOT NULL PRIMARY KEY UNIQUE,
+    id uuid NOT NULL PRIMARY KEY UNIQUE DEFAULT uuid_generate_v4(),
     nome character varying NOT NULL,
     sexo character varying NOT NULL,
     data_nasc date NOT NULL,
