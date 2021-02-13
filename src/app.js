@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 router.post('/cidades', (req, res) => {
   const { nome, uf } = req.body;
 
-  const values = [nome, uf];
+  const values = [nome || null, uf || null];
 
   pool.query('INSERT INTO public.cidade(nome, uf) VALUES($1, $2) RETURNING *', values, (err, result) => {
     if (err) {
