@@ -1,0 +1,20 @@
+{
+  "name": "CRUDClienteCidade",
+  "version": "1.0.0",
+  "description": "CRUD de Clientes e Cidades em Node.JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoPaulo-Carvalho/CRUDClienteCidade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoPaulo-Carvalho/CRUDClienteCidade/issues"
+  },
+  "homepage": "https://github.com/JoaoPaulo-Carvalho/CRUDClienteCidade#readme"
+}
