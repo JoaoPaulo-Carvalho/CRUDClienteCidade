@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', router);
 
 router.get('/', (req, res) => {
-  res.send('API funcionando pelo router!');
+  res.status(200).send('API funcionando pelo router!');
 });
 
 router.post('/cidades', (req, res) => {
