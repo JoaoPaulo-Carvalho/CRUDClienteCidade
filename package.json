@@ -2,9 +2,9 @@
   "name": "CRUDClienteCidade",
   "version": "1.0.0",
   "description": "CRUD de Clientes e Cidades em Node.JS",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ."
   },
   "repository": {
     "type": "git",
