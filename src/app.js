@@ -33,7 +33,7 @@ router.post('/clientes', (req, res) => {
     nome, sexo, dataNasc, idade, cidadeID,
   } = req.body;
 
-  const values = [nome, sexo, dataNasc, idade, cidadeID];
+  const values = [nome || null, sexo || null, dataNasc || null, idade || null, cidadeID || null];
 
   pool.query('INSERT INTO public.cliente(nome, sexo, data_nasc, idade, cidade_id) VALUES($1, $2, $3, $4, $5) RETURNING *', values, (err, result) => {
     if (err) {
