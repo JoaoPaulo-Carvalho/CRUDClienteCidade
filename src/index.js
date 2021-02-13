@@ -47,7 +47,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/cidades', (req, res) => {
-  res.status(200).json(req.body);
+  const { nome, uf } = req.body;
+
+  const values = [nome, uf];
+
+  pool.query('INSERT INTO public.cidade(nome, uf) VALUES($1, $2) RETURNING *', values, (err, result) => {
+    if (err) {
+      res.status(409).send({ error: err.message });
+    } else {
+      res.status(201).json(result.rows[0]);
+    }
+  });
 });
 
 app.listen(port);
