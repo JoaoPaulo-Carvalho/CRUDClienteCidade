@@ -1,12 +1,11 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const pool = require('./database');
 
 const app = express();
 const router = express.Router();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/api', router);
 
