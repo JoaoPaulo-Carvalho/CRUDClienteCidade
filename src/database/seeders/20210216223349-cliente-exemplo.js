@@ -1,5 +1,5 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Clientes', [{
+  up: async (queryInterface) => queryInterface.bulkInsert('Clientes', [{
     id: 'aa2f80ee-5795-47ee-8905-3130cc110fb9',
     nome: 'João Paulo de Carvalho Araújo',
     sexo: 'M',
@@ -21,5 +21,5 @@ module.exports = {
   },
   ]),
 
-  down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Clientes', null, {}),
+  down: async (queryInterface) => queryInterface.bulkDelete('Clientes', null, {}),
 };

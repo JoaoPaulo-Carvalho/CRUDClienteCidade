@@ -1,5 +1,5 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.bulkInsert('Cidades', [{
+  up: async (queryInterface) => queryInterface.bulkInsert('Cidades', [{
     id: '9504c15d-1d6f-440e-a350-c00234c14408',
     nome: 'Juiz de Fora',
     uf: 'MG',
@@ -15,5 +15,5 @@ module.exports = {
   },
   ]),
 
-  down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Cidades', null, {}),
+  down: async (queryInterface) => queryInterface.bulkDelete('Cidades', null, {}),
 };
