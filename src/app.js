@@ -30,6 +30,12 @@ router.post('/cidades', (req, res) => {
     .catch((err) => res.status(409).send({ error: err.message }));
 });
 
+router.get('/clientes', (req, res) => {
+  Clientes.findAll({ where: req.query })
+    .then((result) => res.status(201).json(result))
+    .catch((err) => res.status(409).send({ error: err.message }));
+});
+
 router.post('/clientes', (req, res) => {
   const values = {
     nome: req.body.nome || null,

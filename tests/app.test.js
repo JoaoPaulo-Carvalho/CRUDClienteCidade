@@ -67,6 +67,29 @@ describe('Teste metodo POST de cidades', () => {
   );
 });
 
+describe('Teste metodo GET de clientes', () => {
+  test(
+    'Status 201 - todos os clientes',
+    () => request(app)
+      .get('/api/clientes')
+      .expect(201),
+  );
+
+  test(
+    'Status 201 - nome == \'João Paulo de Carvalho Araújo\'',
+    () => request(app)
+      .get('/api/clientes?nome=João Paulo de Carvalho Araújo')
+      .expect(201),
+  );
+
+  test(
+    'Status 201 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    () => request(app)
+      .get('/api/clientes?id=6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .expect(201),
+  );
+});
+
 describe('Teste metodo POST de clientes', () => {
   test(
     'Status 201 - dados completos',
