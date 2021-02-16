@@ -22,9 +22,20 @@ npm install
 npx sequelize-cli db:migrate
 ```
 
+* Antes de rodar os testes é necessário popular a base com *seeds*, pelo comando:
+```
+npx sequelize-cli db:seed:all
+```
+
 * Para realizar os testes unitários da API:
 ```
 npm test
+```
+
+* Para executar a aplicação sem os dados utilizados nos testes:
+```
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli db:migrate
 ```
 
 * Para executar a aplicação:

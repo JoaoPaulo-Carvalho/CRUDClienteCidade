@@ -83,9 +83,9 @@ describe('Teste metodo GET de clientes', () => {
   );
 
   test(
-    'Status 201 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    'Status 201 - id == \'aa2f80ee-5795-47ee-8905-3130cc110fb9\'',
     () => request(app)
-      .get('/api/clientes?id=6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .get('/api/clientes?id=aa2f80ee-5795-47ee-8905-3130cc110fb9')
       .expect(201),
   );
 });
@@ -100,7 +100,7 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '1997-02-03',
         idade: 24,
-        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '9504c15d-1d6f-440e-a350-c00234c14408',
       })
       .expect(201),
   );
@@ -122,7 +122,7 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '',
         idade: 24,
-        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '9504c15d-1d6f-440e-a350-c00234c14408',
       })
       .expect(409),
   );
@@ -135,7 +135,7 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '',
         idade: 24,
-        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '9504c15d-1d6f-440e-a350-c00234c14408',
       })
       .expect(409),
   );
@@ -143,9 +143,9 @@ describe('Teste metodo POST de clientes', () => {
 
 describe('Teste metodo PATCH de clientes', () => {
   test(
-    'Status 200 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    'Status 200 - id == \'df47416e-2ce9-4b8a-8123-8915569bb0b3\'',
     () => request(app)
-      .patch('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .patch('/api/clientes/df47416e-2ce9-4b8a-8123-8915569bb0b3')
       .send({ nome: 'Carlos Gomes' })
       .expect(200),
   );
@@ -153,7 +153,7 @@ describe('Teste metodo PATCH de clientes', () => {
   test(
     'Status 409 - nome em branco/não enviado',
     () => request(app)
-      .patch('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .patch('/api/clientes/df47416e-2ce9-4b8a-8123-8915569bb0b3')
       .send({ nome: '' })
       .expect(409),
   );
@@ -169,9 +169,9 @@ describe('Teste metodo PATCH de clientes', () => {
 
 describe('Teste metodo DELETE de clientes', () => {
   test(
-    'Status 201 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    'Status 201 - id == \'aa2f80ee-5795-47ee-8905-3130cc110fb9\'',
     () => request(app)
-      .delete('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .delete('/api/clientes/aa2f80ee-5795-47ee-8905-3130cc110fb9')
       .expect(201),
   );
 
