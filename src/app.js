@@ -50,6 +50,21 @@ router.post('/clientes', (req, res) => {
     .catch((err) => res.status(409).send({ error: err.message }));
 });
 
+router.patch('/clientes/:id', async (req, res) => {
+  try {
+    if (req.body.nome) {
+      const cliente = await Clientes.findByPk(req.params.id);
+      cliente.nome = req.body.nome;
+      cliente.save();
+      res.status(200).json(cliente);
+    } else {
+      throw new Error('Nome do cliente em branco ou não enviado!');
+    }
+  } catch (err) {
+    res.status(409).send({ error: err.message });
+  }
+});
+
 router.delete('/clientes/:id', (req, res) => {
   Clientes.findByPk(req.params.id)
     .then((result) => result.destroy())

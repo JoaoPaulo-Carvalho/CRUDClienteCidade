@@ -141,6 +141,32 @@ describe('Teste metodo POST de clientes', () => {
   );
 });
 
+describe('Teste metodo PATCH de clientes', () => {
+  test(
+    'Status 200 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    () => request(app)
+      .patch('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .send({ nome: 'Carlos Gomes' })
+      .expect(200),
+  );
+
+  test(
+    'Status 409 - nome em branco/não enviado',
+    () => request(app)
+      .patch('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .send({ nome: '' })
+      .expect(409),
+  );
+
+  test(
+    'Status 404 - sem id',
+    () => request(app)
+      .patch('/api/clientes')
+      .send({ nome: 'Carlos Gomes' })
+      .expect(404),
+  );
+});
+
 describe('Teste metodo DELETE de clientes', () => {
   test(
     'Status 201 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
