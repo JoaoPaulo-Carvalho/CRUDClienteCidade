@@ -10,6 +10,29 @@ describe('Testar a raiz do router', () => {
   );
 });
 
+describe('Teste metodo GET de cidades', () => {
+  test(
+    'Status 201 - todas as cidades',
+    () => request(app)
+      .get('/api/cidades')
+      .expect(201),
+  );
+
+  test(
+    'Status 201 - uf == \'MG\'',
+    () => request(app)
+      .get('/api/cidades?uf=MG')
+      .expect(201),
+  );
+
+  test(
+    'Status 201 - nome == \'Juiz de Fora\'',
+    () => request(app)
+      .get('/api/cidades?nome=Juiz de Fora')
+      .expect(201),
+  );
+});
+
 describe('Teste metodo POST de cidades', () => {
   test(
     'Status 201 - dados completos',
