@@ -52,7 +52,7 @@ describe('Teste metodo POST de clientes', () => {
       .send({
         nome: 'João Paulo',
         sexo: 'M',
-        dataNasc: '1997-02-03',
+        dataNascimento: '1997-02-03',
         idade: 24,
         cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })
@@ -68,13 +68,13 @@ describe('Teste metodo POST de clientes', () => {
   );
 
   test(
-    'Status 409 - dataNasc == \'\'',
+    'Status 409 - dataNascimento == \'\'',
     () => request(app)
       .post('/api/clientes')
       .send({
         nome: 'João Paulo',
         sexo: 'M',
-        dataNasc: '',
+        dataNascimento: '',
         idade: 24,
         cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })
@@ -87,7 +87,7 @@ describe('Teste metodo POST de clientes', () => {
       .post('/api/clientes')
       .send({
         sexo: 'M',
-        dataNasc: '',
+        dataNascimento: '',
         idade: 24,
         cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })

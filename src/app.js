@@ -1,8 +1,8 @@
 const express = require('express');
-const pool = require('./database');
 
 const app = express();
 const router = express.Router();
+const { Cidades, Clientes } = require('./app/models');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -14,33 +14,28 @@ router.get('/', (req, res) => {
 });
 
 router.post('/cidades', (req, res) => {
-  const { nome, uf } = req.body;
+  const values = {
+    nome: req.body.nome || null,
+    uf: req.body.uf || null,
+  };
 
-  const values = [nome || null, uf || null];
-
-  pool.query('INSERT INTO public.cidade(nome, uf) VALUES($1, $2) RETURNING *', values, (err, result) => {
-    if (err) {
-      res.status(409).send({ error: err.message });
-    } else {
-      res.status(201).json(result.rows[0]);
-    }
-  });
+  Cidades.create(values)
+    .then((result) => res.status(201).json(result))
+    .catch((err) => res.status(409).send({ error: err.message }));
 });
 
 router.post('/clientes', (req, res) => {
-  const {
-    nome, sexo, dataNasc, idade, cidadeID,
-  } = req.body;
+  const values = {
+    nome: req.body.nome || null,
+    sexo: req.body.sexo || null,
+    dataNascimento: req.body.dataNascimento || null,
+    idade: req.body.idade || null,
+    cidadeId: req.body.cidadeId || null,
+  };
 
-  const values = [nome || null, sexo || null, dataNasc || null, idade || null, cidadeID || null];
-
-  pool.query('INSERT INTO public.cliente(nome, sexo, data_nasc, idade, cidade_id) VALUES($1, $2, $3, $4, $5) RETURNING *', values, (err, result) => {
-    if (err) {
-      res.status(409).send({ error: err.message });
-    } else {
-      res.status(201).json(result.rows[0]);
-    }
-  });
+  Clientes.create(values)
+    .then((result) => res.status(201).json(result))
+    .catch((err) => res.status(409).send({ error: err.message }));
 });
 
 module.exports = app;
