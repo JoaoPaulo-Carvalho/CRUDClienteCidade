@@ -50,4 +50,11 @@ router.post('/clientes', (req, res) => {
     .catch((err) => res.status(409).send({ error: err.message }));
 });
 
+router.delete('/clientes/:id', (req, res) => {
+  Clientes.findByPk(req.params.id)
+    .then((result) => result.destroy())
+    .then((result) => res.status(201).json(result))
+    .catch((err) => res.status(409).send({ error: err.message }));
+});
+
 module.exports = app;

@@ -100,7 +100,7 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '1997-02-03',
         idade: 24,
-        cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })
       .expect(201),
   );
@@ -122,7 +122,7 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '',
         idade: 24,
-        cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })
       .expect(409),
   );
@@ -135,8 +135,24 @@ describe('Teste metodo POST de clientes', () => {
         sexo: 'M',
         dataNascimento: '',
         idade: 24,
-        cidadeID: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
+        cidadeId: '6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8',
       })
       .expect(409),
+  );
+});
+
+describe('Teste metodo DELETE de clientes', () => {
+  test(
+    'Status 201 - id == \'6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8\'',
+    () => request(app)
+      .delete('/api/clientes/6ccf2dff-4ed3-4fb7-b5f7-4c9fcd179aa8')
+      .expect(201),
+  );
+
+  test(
+    'Status 404 - sem dados',
+    () => request(app)
+      .delete('/api/clientes')
+      .expect(404),
   );
 });
