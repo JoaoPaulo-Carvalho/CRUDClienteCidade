@@ -23,4 +23,7 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.Clientes.belongsTo(db.Cidades, { onUpdate: 'CASCADE', onDelete: 'RESTRICT', foreignKey: 'cidadeId' });
+db.Cidades.hasMany(db.Clientes, { onUpdate: 'CASCADE', onDelete: 'RESTRICT', foreignKey: 'cidadeId' });
+
 module.exports = db;
