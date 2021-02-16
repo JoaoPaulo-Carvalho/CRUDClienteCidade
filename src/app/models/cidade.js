@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-  const Cidade = sequelize.define('Cidade', {
+  const Cidades = sequelize.define('Cidades', {
     nome: DataTypes.STRING,
     uf: DataTypes.STRING,
   });
 
-  return Cidade;
+  return Cidades;
 };

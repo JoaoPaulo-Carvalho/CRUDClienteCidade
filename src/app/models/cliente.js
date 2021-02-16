@@ -1,14 +1,11 @@
-const Cidade = require('./cidade');
-
 module.exports = (sequelize, DataTypes) => {
-  const Cliente = sequelize.define('Cliente', {
+  const Clientes = sequelize.define('Clientes', {
     nome: DataTypes.STRING,
     sexo: DataTypes.STRING,
     dataNascimento: DataTypes.DATE,
     idade: DataTypes.INTEGER,
+    cidadeId: DataTypes.UUID,
   });
 
-  Cliente.belongsTo(Cidade, { onUpdate: 'CASCADE', onDelete: 'RESTRICT', foreignKey: 'cidadeId' });
-
-  return Cliente;
+  return Clientes;
 };
